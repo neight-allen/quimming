@@ -3,7 +3,7 @@ import React from 'react';
 
 export default class Player extends React.Component {
   static propTypes = {
-    name: PropTypes.string.isRequired, // this is passed from the Rails view
+    audioFile: PropTypes.string.isRequired, // this is passed from the Rails view
   };
 
   render() {
