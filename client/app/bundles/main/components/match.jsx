@@ -25,7 +25,8 @@ export default class Match extends React.Component {
     fetch("/api/v1/matches", {
       method: "POST",
       body: JSON.stringify({winner_id: winner_id, loser_id: loser_id}),
-      headers: myHeaders,
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
     })
       .then(resp => console.log(resp.json()) )
   }

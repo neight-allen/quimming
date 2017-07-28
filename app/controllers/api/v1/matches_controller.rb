@@ -1,7 +1,9 @@
 class Api::V1::MatchesController < Api::V1::ApiController
+  skip_before_action :verify_authenticity_token
+
   def create
-    @match = Match.new match_params
-    # binding.pry
+    return head :unauthorized unless user_signed_in?
+    @match = current_user.matches.new match_params
     raise unless @match.save
     head :no_content
   end
